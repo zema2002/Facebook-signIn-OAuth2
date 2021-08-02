@@ -11,9 +11,21 @@ namespace Facebook.Controllers
     public class AuthController : Controller
     {
         [Route("signin")]
-        public IActionResult SignIn()
+        public IActionResult SignIn_Facebook()
         {
+            
             return Challenge(new AuthenticationProperties{RedirectUri="/"});
         }
+
+        public IActionResult SignIn_Google()
+        {
+            
+            return Challenge(new AuthenticationProperties { RedirectUri = "/" });
+            
+        }
+
+       
+
+        
     }
 }
