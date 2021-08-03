@@ -3,5 +3,21 @@
 }
 
 <p>
-    Authentication Success
+    Authentication Success @ViewBag.Name
 </p>
+
+
+<br />
+
+<p>
+    @ViewBag.Email
+    @ViewBag.Other
+</p>
+
+
+@Context.User.Identity.Name
+
+
+ 
+
+<img src="@Context.User.Claims.SingleOrDefault(c => c.Type == "picture")?.Value" alt="no img" >

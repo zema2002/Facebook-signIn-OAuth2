@@ -74,6 +74,10 @@
               "target": "Package",
               "version": "[3.1.17, )"
             },
+            "Microsoft.Graph": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            },
             "Microsoft.Owin": {
               "target": "Package",
               "version": "[4.2.0, )"

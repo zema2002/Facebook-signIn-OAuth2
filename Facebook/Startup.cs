@@ -13,6 +13,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.OAuth;
 using Microsoft.AspNetCore.Authentication.Facebook;
 using Microsoft.AspNetCore.Authentication.Google;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Identity;
+
 
 namespace Facebook
 {
@@ -44,8 +48,27 @@ namespace Facebook
 
             //    }).AddCookie();
 
+           // services.AddIdentity<IdentityUser, IdentityRole>();
+            services.AddAuthentication(options => { options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme; }).AddCookie(options => { options.LoginPath = "/account/google-login"; }).AddGoogle(options => { options.ClientId = "309849919056-4lbg428kdpdvo114960haacnah6obimn.apps.googleusercontent.com"; options.ClientSecret = "Sac_0TA6Z6QDAIaolL0mUOIU";options.ClaimActions.MapJsonKey(ClaimTypes.NameIdentifier,"id");
+               // options.UserInformationEndpoint = "https://www.googleapis.com/oauth2/v2/userinfo";
+                options.ClaimActions.MapJsonKey(ClaimTypes.Name, "Name");
+                options.ClaimActions.MapJsonKey(ClaimTypes.GivenName, "givenName");
+                options.ClaimActions.MapJsonKey(ClaimTypes.Surname, "surname");
+                options.ClaimActions.MapJsonKey("urn:google:profile", "link");
+                options.ClaimActions.MapJsonKey(ClaimTypes.Email, "email");
+                options.ClaimActions.MapJsonKey("image", "picture");
+               // options.Scope.Add("https://www.googleapis.com/auth/userinfo.profile");
+                options.Events.OnCreatingTicket = (context) =>
+                {
+                    var picture = context.User.GetProperty("picture").GetString();
 
-            services.AddAuthentication(options => { options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme; }).AddCookie(options => { options.LoginPath = "/account/google-login"; }).AddGoogle(options => { options.ClientId = "309849919056-4lbg428kdpdvo114960haacnah6obimn.apps.googleusercontent.com"; options.ClientSecret = "Sac_0TA6Z6QDAIaolL0mUOIU"; });
+                    context.Identity.AddClaim(new Claim("picture", picture));
+
+                    return Task.CompletedTask;
+                };
+
+
+            });
 
 
 
