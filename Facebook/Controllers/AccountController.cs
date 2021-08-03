@@ -35,15 +35,15 @@ namespace Facebook.Controllers
         public async Task<IActionResult> GoogleResponse() {
             // ExternalLoginInfo info = await _signInManager.GetExternalLoginInfoAsync();
             var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            var claims = result.Principal.Identities.FirstOrDefault().Claims.Select(claim => new
-            {
-                claim.Issuer,
-                claim.OriginalIssuer,
-                claim.Type,
-                claim.Value
-            });
+            //var claims = result.Principal.Identities.FirstOrDefault().Claims.Select(claim => new
+            //{
+            //    claim.Issuer,
+            //    claim.OriginalIssuer,
+            //    claim.Type,
+            //    claim.Value
+            //});
             ViewBag.Name = HttpContext.User.Identity.Name;
-            ViewBag.Other = HttpContext.User.Claims.FirstOrDefault().Value;
+            //ViewBag.Other = HttpContext.User.Claims.FirstOrDefault().Value;
             ViewBag.Email = HttpContext.User.Identity.IsAuthenticated;
             // ViewBag.Other = HttpContext.User.Identities.FirstOrDefault().Claims;
             //ViewBag.Other = HttpContext.User.Claims.FirstOrDefault().Value;
