@@ -23,7 +23,7 @@ namespace Facebook.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult GoogleResponse()
         {
             return View();
         }

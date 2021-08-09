@@ -1,0 +1,69 @@
+﻿@{
+    //ViewData["Title"] = "Info";
+}
+
+<html>
+    <head>
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+        <style>
+    img {
+        border-radius: 40px;
+
+       
+        
+    }
+
+            .fig {
+            text-align:center;
+            }
+
+    h4 {
+        margin-top: 50px;
+        margin-left: 1000px;
+
+        
+    }
+            h3 {
+            font-style:italic;
+            }
+            .pead {
+                margin-top: 100px;
+            }
+</style>
+    </head>
+
+
+    <body>
+        <p class="navbar-brand">Signed in as <a href="#" class="nav-item">@ViewBag.Name</a></p>
+        <p class="fig">
+            <img src="@Context.User.Claims.SingleOrDefault(c => c.Type == "picture")?.Value" alt="no img" width="130" height="130" />
+
+            <h3 class="fig">    Hi,@ViewBag.Name </h3><br />
+            <h3 class="fig">Email</h3>
+        <p class="fig">@Context.User.Claims.SingleOrDefault(c => c.Type == "email")?.Value</p>
+        <h3 class="fig">Id</h3>
+        <p class="fig">@Context.User.Claims.SingleOrDefault(c => c.Type == "id")?.Value</p>
+        <h3 class="fig">Name</h3>
+        <p class="fig">@Context.User.Claims.SingleOrDefault(c => c.Type == "GivenName")?.Value</p>
+        <h3 class="fig">SurName</h3>
+        <p class="fig">@Context.User.Claims.SingleOrDefault(c => c.Type == "FamilyName")?.Value</p>
+        <h3 class="fig">Language</h3>
+        <p class="fig">@Context.User.Claims.SingleOrDefault(c => c.Type == "locale")?.Value</p>
+
+
+        <p class="fig">
+
+
+        </p>
+        </p>
+
+
+
+
+
+
+
+
+    </body>
+</html>

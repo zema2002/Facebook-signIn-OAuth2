@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Facebook;
 using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Graph;
@@ -18,7 +20,8 @@ namespace Facebook.Controllers
 {
     [AllowAnonymous, Route("account")]
     public class AccountController : Controller
-    {[Route("google-login")]
+    {
+        [Route("google-login")]
         public IActionResult GoogleLogin()
         {
             var properties = new AuthenticationProperties { RedirectUri = Url.Action("GoogleResponse") };
@@ -27,54 +30,61 @@ namespace Facebook.Controllers
 
         [Route("google-response")]
 
-        public IActionResult Secret()
-        {
-            return View(this.User);
-        }
-
-        public async Task<IActionResult> GoogleResponse() {
-            // ExternalLoginInfo info = await _signInManager.GetExternalLoginInfoAsync();
-            var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            //var claims = result.Principal.Identities.FirstOrDefault().Claims.Select(claim => new
-            //{
-            //    claim.Issuer,
-            //    claim.OriginalIssuer,
-            //    claim.Type,
-            //    claim.Value
-            //});
-            ViewBag.Name = HttpContext.User.Identity.Name;
-            //ViewBag.Other = HttpContext.User.Claims.FirstOrDefault().Value;
-            ViewBag.Email = HttpContext.User.Identity.IsAuthenticated;
-            // ViewBag.Other = HttpContext.User.Identities.FirstOrDefault().Claims;
-            //ViewBag.Other = HttpContext.User.Claims.FirstOrDefault().Value;
-            /// var info = await _signInManager.GetExternalLoginInfoAsunc();
-            /// var picture = info.Principal.FindFirstValue("image");
-            //var info = await AuthenticationManager.GetExternalLoginInfoAsync();
-            //var detailed = AuthenticationManager.AuthenticateAsync(DefaultAuthenticationTypes.ExternalCookie)
-            //var googleUser = new GoogleOAuth2AuthenticationOptions {
-                
-            //}
-
-
-            return View();
-
-
-        }
-
-
-
-        //public async Task<IActionResult> ExternalLoginCallback(string returnUrl = null, string remoteError = null)
+        //public IActionResult Secret()
         //{
-        //   private readonly SignInManager<User> _signInManager;
-        //ExternalLoginInfo info = await _signInManager.GetExternalLoginInfoAsync();
-        //    SignInResult signInResult = await _signInManager.ExternalLoginSignInAsync(info.LoginProvider, info.ProviderKey, isPersistent: false);
-        //    string email = info.Principal.FindFirstValue(ClaimTypes.Email);
-        //    string firstName = info.Principal.FindFirstValue(ClaimTypes.GivenName);
-        //    string lastName = info.Principal.FindFirstValue(ClaimTypes.Surname);
-        //    //
+        //    return View(this.User);
         //}
 
+        public async Task<IActionResult> GoogleResponse()
+        {
+            var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            ViewBag.Name = HttpContext.User.Identity.Name;
+            ViewBag.Email = HttpContext.User.Identity.IsAuthenticated;
+            var check = HttpContext.User.Identity.IsAuthenticated;
+            //if (check) { Response.Redirect("/Home/GoogleResponse"); }
+            return View();
+
+        }
+    //}
 
 
-    }
-}
+    //    [Route("facebook-login")]
+    //    public IActionResult FacebookLogin()
+    //    {
+    //        var properties = new AuthenticationProperties { RedirectUri = "/FacebookResponse" };
+    //        return Challenge(properties, FacebookDefaults.AuthenticationScheme);
+    //    }
+
+    //    [Route("facebook-response")]
+
+
+    //    public async Task<IActionResult> FacebookResponse()
+    //    {
+    //        var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+    //        ViewBag.Name = HttpContext.User.Identity.Name;
+    //        ViewBag.Email = HttpContext.User.Identity.IsAuthenticated;
+    //        var check = HttpContext.User.Identity.IsAuthenticated;
+    //        if (check) { Response.Redirect("/Home/GoogleResponse"); }
+    //        return View();
+
+    //    }
+    //}
+
+
+
+    //    [HttpGet]
+    //    [AllowAnonymous]
+    //    public async Task<IActionResult> Login(string returnUrl) 
+    //    {
+    //        LoginViewModel model = new LoginViewModel 
+    //        {
+    //            ReturnUrl = returnUrl;
+    //        ExternalLogins = (await signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+    //    };
+    //    return View(model); 
+    //}
+
+} }
+
+
+

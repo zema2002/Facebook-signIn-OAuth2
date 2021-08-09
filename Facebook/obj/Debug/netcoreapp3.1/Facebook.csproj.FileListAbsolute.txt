@@ -90,3 +90,4 @@ C:\Users\serj7\source\repos\Facebook\Facebook\bin\Debug\netcoreapp3.1\System.Dia
 C:\Users\serj7\source\repos\Facebook\Facebook\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\serj7\source\repos\Facebook\Facebook\bin\Debug\netcoreapp3.1\System.Memory.Data.dll
 C:\Users\serj7\source\repos\Facebook\Facebook\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\serj7\source\repos\Facebook\Facebook\obj\Debug\netcoreapp3.1\Razor\Views\Shared\FacebookResponse.cshtml.g.cs
