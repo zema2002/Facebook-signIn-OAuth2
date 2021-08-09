@@ -141,10 +141,10 @@ namespace Facebook
 
 
             services.AddAuthentication(options => { options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
-                options.DefaultSignInScheme = "External";
+                
             })
                 .AddCookie(options => { options.LoginPath = "/account/google-login"; })
-                .AddCookie("External")
+                
             .AddGoogle(options => { options.ClientId = "309849919056-4lbg428kdpdvo114960haacnah6obimn.apps.googleusercontent.com";
                 options.ClientSecret = "Sac_0TA6Z6QDAIaolL0mUOIU";
                 options.ClaimActions.MapJsonKey(ClaimTypes.NameIdentifier,"id");
