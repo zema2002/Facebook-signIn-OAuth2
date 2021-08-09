@@ -52,7 +52,6 @@ C:\Users\serj7\source\repos\Facebook\Facebook\obj\Debug\netcoreapp3.1\Facebook.c
 C:\Users\serj7\source\repos\Facebook\Facebook\obj\Debug\netcoreapp3.1\Facebook.dll
 C:\Users\serj7\source\repos\Facebook\Facebook\obj\Debug\netcoreapp3.1\Facebook.pdb
 C:\Users\serj7\source\repos\Facebook\Facebook\obj\Debug\netcoreapp3.1\Facebook.genruntimeconfig.cache
-C:\Users\serj7\source\repos\Facebook\Facebook\obj\Debug\netcoreapp3.1\Razor\Views\Home\Info.cshtml.g.cs
 C:\Users\serj7\source\repos\Facebook\Facebook\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll
 C:\Users\serj7\source\repos\Facebook\Facebook\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll
 C:\Users\serj7\source\repos\Facebook\Facebook\bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.VisualBasic.dll
@@ -73,7 +72,6 @@ C:\Users\serj7\source\repos\Facebook\Facebook\bin\Debug\netcoreapp3.1\IdentityMo
 C:\Users\serj7\source\repos\Facebook\Facebook\bin\Debug\netcoreapp3.1\IdentityModel.AspNetCore.OAuth2Introspection.dll
 C:\Users\serj7\source\repos\Facebook\Facebook\bin\Debug\netcoreapp3.1\System.Text.Encodings.Web.dll
 C:\Users\serj7\source\repos\Facebook\Facebook\bin\Debug\netcoreapp3.1\System.Text.Json.dll
-C:\Users\serj7\source\repos\Facebook\Facebook\obj\Debug\netcoreapp3.1\Razor\Views\Home\SignInGoogle.cshtml.g.cs
 C:\Users\serj7\source\repos\Facebook\Facebook\obj\Debug\netcoreapp3.1\Razor\Views\Shared\GoogleResponse.cshtml.g.cs
 C:\Users\serj7\source\repos\Facebook\Facebook\obj\Debug\netcoreapp3.1\Razor\Views\Shared\GoogleInfo.cshtml.g.cs
 C:\Users\serj7\source\repos\Facebook\Facebook\bin\Debug\netcoreapp3.1\Azure.Core.dll
@@ -91,3 +89,6 @@ C:\Users\serj7\source\repos\Facebook\Facebook\bin\Debug\netcoreapp3.1\System.Ide
 C:\Users\serj7\source\repos\Facebook\Facebook\bin\Debug\netcoreapp3.1\System.Memory.Data.dll
 C:\Users\serj7\source\repos\Facebook\Facebook\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\serj7\source\repos\Facebook\Facebook\obj\Debug\netcoreapp3.1\Razor\Views\Shared\FacebookResponse.cshtml.g.cs
+C:\Users\serj7\source\repos\Facebook\Facebook\obj\Debug\netcoreapp3.1\Razor\Views\Home\Login.cshtml.g.cs
+C:\Users\serj7\source\repos\Facebook\Facebook\obj\Debug\netcoreapp3.1\Razor\Views\Shared\SignInGoogle.cshtml.g.cs
+C:\Users\serj7\source\repos\Facebook\Facebook\obj\Debug\netcoreapp3.1\Razor\Views\Home\DevInfo.cshtml.g.cs

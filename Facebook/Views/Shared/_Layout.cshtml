@@ -6,12 +6,17 @@
     <title>@ViewData["Title"] - Facebook</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        .round_img {
+        border-radius:25px;
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Auth" asp-action="SignIn_Facebook">Facebook</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Auth" asp-action="">Authentication</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -20,21 +25,44 @@
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                        
+
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Info">LogIn</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="DevInfo">DevInfo</a>
                         </li>
-
+                        
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="GoogleResponse">!</a>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <a asp-controller="Account" asp-action="GoogleResponse" class="nav-link text-dark">Credentials</a> }
+                            else
+                            {
+                                <a></a>}
+
+                        </li>
+                           
                         </li>
                     </ul>
-                </div>
+
+                    
+
+                    </div>
             </div>
+            <div class="nav-item align-content-md-end ">
+                <ul class="nav-item">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        var email = @Context.User.Claims.SingleOrDefault(c => c.Type == "email")?.Value;
+                   
+                        <a asp-controller="Account" asp-action="Logout" class="nav-link text-info">@email ,Logout</a>
+                    }
+                    else
+                    {
+                        <a asp-controller="Account" asp-action="GoogleLogin" class="nav-link text-info">Login</a>}</ul>
+
+</div>
+            <div class="nav-item align-content-end">@if (User.Identity.IsAuthenticated) {<img class="round_img"src="@Context.User.Claims.SingleOrDefault(c => c.Type == "picture")?.Value" alt="no img" width="50" height="50" /> }</div>
         </nav>
     </header>
     <div class="container">

@@ -28,7 +28,8 @@ namespace Facebook.Controllers
             return View();
         }
 
-        public IActionResult Info() {
+        public IActionResult DevInfo()
+        {
             return View();
         }
 
