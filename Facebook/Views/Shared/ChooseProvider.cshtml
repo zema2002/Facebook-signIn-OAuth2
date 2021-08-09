@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Provider";
+}
+
+<style>
+    .Decor {
+    font-family:'Agency FB';
+    font-style:italic;
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="Decor">Choose an option for authentication</h1>
+</div>
+
+<div class="">
+   <img src="~/img/gg.png" height="50" width="50"/>
+    <a class="btn btn-outline-warning asp-controller="Account" asp-action="GoogleLogin">Google</a><br /><br />
+    <img src="~/img/fb.png" height="50" width="50"/>
+    <a class="btn btn-outline-info" asp-controller="Account" asp-action="FacebookLogin">Facebook</a>
+</div>

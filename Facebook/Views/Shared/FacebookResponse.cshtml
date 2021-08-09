@@ -38,6 +38,7 @@
         <p class="navbar-brand">Signed in as <a href="#" class="nav-item">@ViewBag.Name</a></p>
         <p class="fig">
             <img src="@Context.User.Claims.SingleOrDefault(c => c.Type == "picture")?.Value" alt="no img" width="130" height="130" />
+           
 
             <h3 class="fig">    Hi,@ViewBag.Name </h3><br />
             <h3 class="fig">Email</h3>

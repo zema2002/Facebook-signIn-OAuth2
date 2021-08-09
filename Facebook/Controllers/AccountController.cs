@@ -21,6 +21,14 @@ namespace Facebook.Controllers
     [AllowAnonymous, Route("account")]
     public class AccountController : Controller
     {
+        [Route("facebook-login")]
+        public IActionResult FacebookLogin() {
+            var properties = new AuthenticationProperties { RedirectUri = Url.Action("SignInFacebook") };
+            return Challenge(properties, FacebookDefaults.AuthenticationScheme);
+        }
+
+
+
         [Route("google-login")]
         public IActionResult GoogleLogin()
         {
@@ -67,7 +75,11 @@ namespace Facebook.Controllers
             return LocalRedirect("/");
         }
 
-      
+
+        [Route("choose-provider")]
+        public async Task<IActionResult> ChooseProvider() {
+            return View();
+        }
         //}
 
 
@@ -106,6 +118,40 @@ namespace Facebook.Controllers
         //    };
         //    return View(model); 
         //}
+
+
+        [Route("facebook-response")]
+
+        //public IActionResult Secret()
+        //{
+        //    return View(this.User);
+        //}
+
+        public async Task<IActionResult> SignInFacebook()
+        {
+            var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return View();
+        }
+
+        [Route("facebook-info")]
+        public async Task<IActionResult> FacebookResponse()
+        {
+            var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            ViewBag.Name = HttpContext.User.Identity.Name;
+            ViewBag.Email = HttpContext.User.Identity.IsAuthenticated;
+            var check = HttpContext.User.Identity.IsAuthenticated;
+            //if (check) { Response.Redirect("/Home/GoogleResponse"); }
+            return View();
+
+        }
+        //public async Task<IActionResult> SignInGoogle()
+        //{
+
+        //    return View();
+        //}
+
+        
+
 
     } }
 
